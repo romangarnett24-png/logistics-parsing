@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiTrack - Отслеживание посылок</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Main Content (Forms and Results) -->
+        <main class="content-area">
+            <header>
+                <h1>MultiTrack</h1>
+                <p>Удобное отслеживание отправлений</p>
+            </header>
+
+            <div class="tracking-forms">
+                <!-- CDEK Card -->
+                <article class="carrier-card" id="card-cdek">
+                    <div class="card-header">
+                        <h2>СДЭК</h2>
+                    </div>
+                    <form class="track-form" data-carrier="CDEK">
+                        <input type="text" name="trackNumber" placeholder="Введите трек-номер" required>
+                        <button type="submit">Найти</button>
+                    </form>
+                    <div class="result-container" style="display: none;">
+                        <div class="status-summary"></div>
+                        <ul class="timeline"></ul>
+                    </div>
+                    <div class="skeleton-loader" style="display: none;">
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line"></div>
+                    </div>
+                </article>
+
+                <!-- CSE Card -->
+                <article class="carrier-card" id="card-cse">
+                    <div class="card-header">
+                        <h2>КСЭ</h2>
+                    </div>
+                    <form class="track-form" data-carrier="CSE">
+                        <input type="text" name="trackNumber" placeholder="Введите накладную" required>
+                        <button type="submit">Найти</button>
+                    </form>
+                    <div class="result-container" style="display: none;">
+                        <div class="status-summary"></div>
+                        <ul class="timeline"></ul>
+                    </div>
+                    <div class="skeleton-loader" style="display: none;">
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line"></div>
+                    </div>
+                </article>
+
+                <!-- Major Express Card -->
+                <article class="carrier-card" id="card-major">
+                    <div class="card-header">
+                        <h2>Major Express</h2>
+                    </div>
+                    <form class="track-form" data-carrier="Major">
+                        <input type="text" name="trackNumber" placeholder="Введите накладную" required>
+                        <button type="submit">Найти</button>
+                    </form>
+                    <div class="result-container" style="display: none;">
+                        <div class="status-summary"></div>
+                        <ul class="timeline"></ul>
+                    </div>
+                    <div class="skeleton-loader" style="display: none;">
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line"></div>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <!-- Sidebar for History -->
+        <aside class="history-sidebar">
+            <div class="sidebar-header">
+                <h2>История поиска</h2>
+                <button id="refresh-history" title="Обновить историю">↻</button>
+            </div>
+            <div id="history-list" class="history-list">
+                <!-- History items injected via JS -->
+                <p class="empty-state">История пуста</p>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
